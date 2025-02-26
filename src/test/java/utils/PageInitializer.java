@@ -1,12 +1,14 @@
 package utils;
 
-public class PageInitializer {
-    public static LoginPage loginPage;
+import pages.CreatingLogCredentialsPage;
 
+public class PageInitializer {
+   // public static LoginPage loginPage;
+public static CreatingLogCredentialsPage creatingLogCredentialsPage;
     public static void activatePageObjects() {
 
-        loginPage = new LoginPage();
+       // loginPage = new LoginPage();
 
-
+creatingLogCredentialsPage=new CreatingLogCredentialsPage();
     }
 }
