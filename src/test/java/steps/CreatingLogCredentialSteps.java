@@ -1,6 +1,5 @@
 package steps;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -11,27 +10,27 @@ public class CreatingLogCredentialSteps extends CommonMethods {
 
     @When("admin enter login credentials and submits")
     public void admin_enter_login_credentials_and_submits() {
-        creatingLogCredentialsPage.logInUserNameField.sendKeys(ConfigReader.read("username"));
-        creatingLogCredentialsPage.logInPasswordField.sendKeys(ConfigReader.read("password"));
-        clickOnElement(creatingLogCredentialsPage.logInButton);
+        creatingLogCredentialsPage.logInUserNameField.sendKeys(ConfigReader.READ("username"));
+        creatingLogCredentialsPage.logInPasswordField.sendKeys(ConfigReader.READ("password"));
+        CLICK_ON_ELEMENT(creatingLogCredentialsPage.logInButton);
     }
 
     @Then("admin lands {string} page")
     public void admin_lands_page(String dashboard) {
-       String expected=creatingLogCredentialsPage.dashboardPage.getText();
-       Assert.assertTrue("Expected to be on "+dashboard+" page, but was on "+expected,expected.contains(dashboard));
+        String expected = creatingLogCredentialsPage.dashboardPage.getText();
+        Assert.assertTrue("Expected to be on " + dashboard + " page, but was on " + expected, expected.contains(dashboard));
 
 
     }
 
     @Then("admin click on PIM tab")
     public void admin_click_on_pim_tab() {
-       clickOnElement(creatingLogCredentialsPage.PIMTab);
+        CLICK_ON_ELEMENT(creatingLogCredentialsPage.PIMTab);
     }
 
     @Then("admin click on AddEmployee tab")
     public void admin_click_on_add_employee_tab() {
-        clickOnElement(creatingLogCredentialsPage.addEmployeeTab);
+        CLICK_ON_ELEMENT(creatingLogCredentialsPage.addEmployeeTab);
     }
 
     @When("admin enter {string}, {string} and {string}")
@@ -44,7 +43,7 @@ public class CreatingLogCredentialSteps extends CommonMethods {
 
     @When("admin check Create Login Details box")
     public void admin_check_create_login_details_box() {
-       clickOnElement(creatingLogCredentialsPage.createLogDetailsBox);
+        CLICK_ON_ELEMENT(creatingLogCredentialsPage.createLogDetailsBox);
     }
 
     @Then("admin sees clear rule message about password")
@@ -66,13 +65,13 @@ public class CreatingLogCredentialSteps extends CommonMethods {
 
     @When("admin click save button")
     public void admin_click_save_button() {
-        clickOnElement(creatingLogCredentialsPage.saveButton);
+        CLICK_ON_ELEMENT(creatingLogCredentialsPage.saveButton);
     }
 
     @Then("admin ends on {string} page")
     public void admin_ends_on_page(String personalDetailPage) {
-        String expected=creatingLogCredentialsPage.personalDetailPage.getText();
-        Assert.assertTrue("Expected to be on "+personalDetailPage+" page, but was on "+expected,expected.contains(personalDetailPage));
+        String expected = creatingLogCredentialsPage.personalDetailPage.getText();
+        Assert.assertTrue("Expected to be on " + personalDetailPage + " page, but was on " + expected, expected.contains(personalDetailPage));
 
 
     }
@@ -85,8 +84,8 @@ public class CreatingLogCredentialSteps extends CommonMethods {
 
     @Then("admin logs out")
     public void admin_logs_out() {
-        clickOnElement(creatingLogCredentialsPage.welcomeTextBox);
-        clickOnElement(creatingLogCredentialsPage.logOutButton);
+        CLICK_ON_ELEMENT(creatingLogCredentialsPage.welcomeTextBox);
+        CLICK_ON_ELEMENT(creatingLogCredentialsPage.logOutButton);
     }
 
 
@@ -94,39 +93,43 @@ public class CreatingLogCredentialSteps extends CommonMethods {
     public void employee_shall_be_able_to_login_with_and_get_message(String username, String password, String expectedMsg) {
         creatingLogCredentialsPage.logInUserNameField.sendKeys(username);
         creatingLogCredentialsPage.logInPasswordField.sendKeys(password);
-        clickOnElement(creatingLogCredentialsPage.logInButton);
-        String actualMsg=creatingLogCredentialsPage.welcomeTextBox.getText();
-        Assert.assertEquals(expectedMsg,actualMsg);
+        CLICK_ON_ELEMENT(creatingLogCredentialsPage.logInButton);
+        String actualMsg = creatingLogCredentialsPage.welcomeTextBox.getText();
+        Assert.assertEquals(expectedMsg, actualMsg);
     }
 
 
     @Then("admin shall get an error message {string}")
     public void admin_shall_get_an_error_message(String expectedErrorMessage) {
-        String actualErrMsg=creatingLogCredentialsPage.passErrorMsg.getText();
+        String actualErrMsg = creatingLogCredentialsPage.passErrorMsg.getText();
 
-        Assert.assertEquals(expectedErrorMessage,actualErrMsg);
+        Assert.assertEquals(expectedErrorMessage, actualErrMsg);
 
     }
+
     @Then("admin gets an error message {string}")
     public void admin_gets_an_error_message(String expectedErrMsg) {
-        String actualErrorMessage=creatingLogCredentialsPage.requiredFieldsError.getText();
-        Assert.assertEquals(expectedErrMsg,actualErrorMessage);
+        String actualErrorMessage = creatingLogCredentialsPage.requiredFieldsError.getText();
+        Assert.assertEquals(expectedErrMsg, actualErrorMessage);
     }
+
     @Then("admin set Status as Disabled")
     public void admin_set_status_as_disabled() {
-        clickOnElement(creatingLogCredentialsPage.statusDropdown);
-        clickOnElement(creatingLogCredentialsPage.disabledSelection);
+        CLICK_ON_ELEMENT(creatingLogCredentialsPage.statusDropdown);
+        CLICK_ON_ELEMENT(creatingLogCredentialsPage.disabledSelection);
     }
+
     @Then("employee shall not be able to login using {string}, {string} as credentials")
     public void employee_shall_not_be_able_to_login_using_as_credentials(String username, String password) {
         creatingLogCredentialsPage.logInUserNameField.sendKeys(username);
         creatingLogCredentialsPage.logInPasswordField.sendKeys(password);
-        clickOnElement(creatingLogCredentialsPage.logInButton);
+        CLICK_ON_ELEMENT(creatingLogCredentialsPage.logInButton);
     }
+
     @Then("employee will get {string} error message")
     public void employee_will_get_error_message(String expectedError) {
-        String actualErrorMessage=creatingLogCredentialsPage.accountDisabledError.getText();
-        Assert.assertEquals(expectedError,actualErrorMessage);
+        String actualErrorMessage = creatingLogCredentialsPage.accountDisabledError.getText();
+        Assert.assertEquals(expectedError, actualErrorMessage);
     }
 
 }

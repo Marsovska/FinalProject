@@ -6,7 +6,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,8 +19,8 @@ import java.util.Date;
 public class CommonMethods extends PageInitializer{
     public static WebDriver driver;
 
-    public static void openBrowser() {
-        String browser = ConfigReader.read("browser");
+    public static void OPEN_BROWSER() {
+        String browser = ConfigReader.READ("browser");
         switch (browser) {
             case "chrome":
                 driver = new ChromeDriver(); //this is replaced with above headless for backend test purposes
@@ -39,33 +38,33 @@ public class CommonMethods extends PageInitializer{
                 throw new RuntimeException("The name of browser is invalid" + browser);
         }
         driver.manage().window().maximize();
-        driver.get(ConfigReader.read("url"));
+        driver.get(ConfigReader.READ("url"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
-        activatePageObjects();
+        ACTIVATE_PAGE_OBJECTS();
 
     }
 
-    public static void shutDownBrowser() {
+    public static void SHUT_DOWN_BROWSER() {
         if (driver != null) {
             driver.close();
         }
     }
 
-    public String getTimeStamp(String pattern) {
+    public String GET_TIME_STAMP(String pattern) {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat(pattern);
         return sdf.format(date);
 
     }
 
-    public byte[] takeScreenShot(String fileName) {
+    public byte[] TAKE_SCREENSHOT(String fileName) {
 
         TakesScreenshot ts = (TakesScreenshot) driver;
         byte[] picByte = ts.getScreenshotAs(OutputType.BYTES);
         File sourceFile = ts.getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(sourceFile, new File(Constants.SCREENSHOT_FILEPATH + fileName + " " + getTimeStamp("yyyy-MM-dd-HH-mm-ss") + ".png"));
+            FileUtils.copyFile(sourceFile, new File(Constants.SCREENSHOT_FILEPATH + fileName + " " + GET_TIME_STAMP("yyyy-MM-dd-HH-mm-ss") + ".png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -73,23 +72,23 @@ public class CommonMethods extends PageInitializer{
     }
 
 
-    public static void waitForElementToBeVisible(WebElement element) {
-        getWait().until(ExpectedConditions.visibilityOf(element));
+    public static void WAIT_FOR_ELEMENT_TO_BE_VISIBLE(WebElement element) {
+        GET_WAIT().until(ExpectedConditions.visibilityOf(element));
     }
     public static  void sentText(String text, WebElement element){
-        waitForElementToBeVisible(element);
+        WAIT_FOR_ELEMENT_TO_BE_VISIBLE(element);
         element.clear();
         element.sendKeys(text);
     }
-    public static WebDriverWait getWait(){
+    public static WebDriverWait GET_WAIT(){
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
         return wait;
     }
-    public static void clickOnElement(WebElement element){
-        waitForElementToBeClickable(element);
+    public static void CLICK_ON_ELEMENT(WebElement element){
+        WAIT_FOR_ELEMENT_TO_BE_CLICKABLE(element);
         element.click();
     }
-    public static void waitForElementToBeClickable(WebElement element) {
-        getWait().until(ExpectedConditions.elementToBeClickable(element));
+    public static void WAIT_FOR_ELEMENT_TO_BE_CLICKABLE(WebElement element) {
+        GET_WAIT().until(ExpectedConditions.elementToBeClickable(element));
     }
 }

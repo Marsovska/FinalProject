@@ -32,10 +32,10 @@ Feature: API User creation
     And the response "condition" is "error"
     And the response "data" is "Please fill all inputs"
 
-    @api @emptyName
-      Scenario: Creating user without providing name
-      Given Request is prepared without name using dynamic payload
-      When Post call is send for user creation
-      Then the status code received is 400
-      And the response "condition" is "error"
-      And the response "data" is "Please fill all inputs"
+  @api @emptyName
+  Scenario: Creating user without providing name
+    Given Request is prepared without name using dynamic payload
+    When Post call is send for user creation
+    Then the status code received is 400
+    And the response "condition" is "error"
+    And the response "data" is "Please fill all inputs"

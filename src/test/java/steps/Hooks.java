@@ -3,10 +3,7 @@ package steps;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import org.openqa.selenium.chrome.ChromeDriver;
 import utils.CommonMethods;
-
-import java.time.Duration;
 
 public class Hooks extends CommonMethods {
     //this is for precondition of the project
@@ -23,7 +20,7 @@ public class Hooks extends CommonMethods {
     // and it was now replaced with a method developed in Common Methods
     @Before
     public void begin() {
-        openBrowser();
+        OPEN_BROWSER();
     }
 
 
@@ -31,12 +28,12 @@ public class Hooks extends CommonMethods {
     public void finish(Scenario scenario) {
         byte[] pic;
         if (scenario.isFailed()) {
-            pic = takeScreenShot("failed/" + scenario.getName());
+            pic = TAKE_SCREENSHOT("failed/" + scenario.getName());
         } else {
-            pic = takeScreenShot("passed/" + scenario.getName());
+            pic = TAKE_SCREENSHOT("passed/" + scenario.getName());
         }
         scenario.attach(pic, "image.png", scenario.getName());
 
-        shutDownBrowser();
+        SHUT_DOWN_BROWSER();
     }
 }

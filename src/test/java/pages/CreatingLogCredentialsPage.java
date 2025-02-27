@@ -6,19 +6,19 @@ import org.openqa.selenium.support.PageFactory;
 import utils.CommonMethods;
 
 public class CreatingLogCredentialsPage extends CommonMethods {
-    @FindBy(id="txtUsername")
+    @FindBy(id = "txtUsername")
     public WebElement logInUserNameField;
 
-    @FindBy(id="txtPassword")
+    @FindBy(id = "txtPassword")
     public WebElement logInPasswordField;
 
-    @FindBy(id="btnLogin")
+    @FindBy(id = "btnLogin")
     public WebElement logInButton;
 
     @FindBy(xpath = "//h1[text()='Dashboard']")
     public WebElement dashboardPage;
 
-    @FindBy(id="welcome")
+    @FindBy(id = "welcome")
     public WebElement welcomeTextBox;
 
     @FindBy(xpath = "//a[@id='menu_pim_viewPimModule']")
@@ -26,40 +26,40 @@ public class CreatingLogCredentialsPage extends CommonMethods {
     @FindBy(xpath = "//a[@id='menu_pim_addEmployee']")
     public WebElement addEmployeeTab;
 
-    @FindBy(id="firstName")
+    @FindBy(id = "firstName")
     public WebElement firstNameField;
 
-    @FindBy(id="middleName")
+    @FindBy(id = "middleName")
     public WebElement middleNameField;
 
-    @FindBy(id="lastName")
+    @FindBy(id = "lastName")
     public WebElement lastNameField;
 
-    @FindBy(id="chkLogin")
+    @FindBy(id = "chkLogin")
     public WebElement createLogDetailsBox;
 
-    @FindBy(id="user_name")
+    @FindBy(id = "user_name")
     public WebElement userNameField;
 
-    @FindBy(id="user_password")
+    @FindBy(id = "user_password")
     public WebElement passwordField;
 
-    @FindBy(id="re_password")
+    @FindBy(id = "re_password")
     public WebElement confirmPasswordField;
 
-    @FindBy(id="status")
+    @FindBy(id = "status")
     public WebElement statusDropdown;
 
     @FindBy(xpath = "//option[@value='Disabled']")
     public WebElement disabledSelection;
 
-    @FindBy(id="btnSave")
+    @FindBy(id = "btnSave")
     public WebElement saveButton;
 
     @FindBy(xpath = "//a[text()='Logout']")
     public WebElement logOutButton;
 
-    @FindBy(id="personal_txtEmployeeId")
+    @FindBy(id = "personal_txtEmployeeId")
     public WebElement employeeIDField;
 
     @FindBy(xpath = "//h1[text()='Personal Details']")
@@ -77,12 +77,9 @@ public class CreatingLogCredentialsPage extends CommonMethods {
     @FindBy(xpath = "//span[text()='Account disabled']")
     public WebElement accountDisabledError;
 
-    public CreatingLogCredentialsPage(){
-        PageFactory.initElements(driver,this);
+    public CreatingLogCredentialsPage() {
+        PageFactory.initElements(driver, this);
     }
-
-
-
 
 
 }
