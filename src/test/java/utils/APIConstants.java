@@ -10,6 +10,7 @@ public class APIConstants {
 
     //all the end points, base URI, header keys and values
     public static final String BaseURI = RestAssured.baseURI = "http://hrm.syntaxtechs.net/syntaxapi/api";
+    public static final String CREATE_USER_URI=BaseURI+"/createUser.php";
     public static final String CREATE_EMPLOYEE_URI = BaseURI+"/createEmployee.php";
     public static final String GENERATE_TOKEN_URI = BaseURI+"/generateToken.php";
     public static final String GET_ONE_EMPLOYEE_URI = BaseURI+"/getOneEmployee.php";
