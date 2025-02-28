@@ -71,7 +71,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.2</version>
                 <configuration>
-
+                    <includes>
+                        <include>**/*APIRunner.java</include>
+                        <include>**/*TestRunner.java</include>
+                    </includes>
                 </configuration>
             </plugin>
 
