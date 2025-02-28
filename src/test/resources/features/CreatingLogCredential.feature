@@ -4,7 +4,6 @@ Feature: Creating Login details in HRMS Application
     ##Given admin is able to navigate to HRMS login page
     When admin enter login credentials and submits
     Then admin lands "Dashboard" page
-    ##try to find way to parametarize pim and addemp tabs
     And admin click on PIM tab
     And admin click on AddEmployee tab
 
@@ -14,15 +13,15 @@ Feature: Creating Login details in HRMS Application
     When admin enter "Billy", "" and "Idol"
     When admin check Create Login Details box
     Then admin sees clear rule message about password
-    When admin set "RebeolYuel", "RebelSynt@x32", "RebelSynt@x32" as user credentials
+    When admin set "RebellHell", "RebelSynt@x08", "RebelSynt@x08" as user credentials
     When admin make sure status is enabled
     When admin click save button
     Then admin ends on "Personal Details" page
     Then the system should automatically generate employee ID
     Then admin logs out
-    Then employee shall be able to login with "RebeolYuel", "RebelSynt@x32" and get "Welcome Billy" message
+    Then employee shall be able to login with "RebellHell", "RebelSynt@x08" and get "Welcome Billy" message
 
-  @regression @negative_test
+  @regression @negative_test1
   Scenario:Admin ensures password and re-enter password must be a match
     When admin enter "Billy", "" and "Idol"
     When admin check Create Login Details box
@@ -45,10 +44,10 @@ Feature: Creating Login details in HRMS Application
     When admin enter "Marry", "" and "Jane"
     When admin check Create Login Details box
     Then admin sees clear rule message about password
-    When admin set "MarryJane", "Synt@xBatch30", "Synt@xBatch30" as user credentials
+    When admin set "MarriJane", "Synt@xBatch08", "Synt@xBatch08" as user credentials
     Then admin set Status as Disabled
     When admin click save button
     Then admin logs out
-    Then employee shall not be able to login using "MarryJane", "Synt@xBatch30" as credentials
+    Then employee shall not be able to login using "MarriJane", "Synt@xBatch08" as credentials
     And employee will get "Account disabled" error message
 

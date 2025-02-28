@@ -8,12 +8,14 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/CreatingLogCredential.feature",
         glue = "steps",
-        dryRun =false,
-        plugin = {"pretty","html:target/project.html"},
-        tags = "@positive_test"
+        dryRun = false,
+        tags = "@negative_test1",
+        plugin = {"pretty"
+                , "html:target/cucumber-html-reports/cucumber.html"
+                , "json:target/cucumber-reports/cucumber.json"
+                , "rerun:target/failed.txt"}
+
 )
-
-
 
 
 public class TestRunner {
