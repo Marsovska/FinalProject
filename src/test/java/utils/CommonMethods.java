@@ -16,15 +16,15 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 
-public class CommonMethods extends PageInitializer{
+public class CommonMethods extends PageInitializer {
     public static WebDriver driver;
 
     public static void OPEN_BROWSER() {
         String browser = ConfigReader.READ("browser");
         switch (browser) {
             case "chrome":
-                driver = new ChromeDriver(); //this is replaced with above headless for backend test purposes
-               // ChromeOptions options=new ChromeOptions();
+                driver = new ChromeDriver();
+                //ChromeOptions options=new ChromeOptions();
                 //options.addArguments("--headless");
                 //driver=new ChromeDriver(options);
                 break;
@@ -72,22 +72,16 @@ public class CommonMethods extends PageInitializer{
     }
 
 
-    public static void WAIT_FOR_ELEMENT_TO_BE_VISIBLE(WebElement element) {
-        GET_WAIT().until(ExpectedConditions.visibilityOf(element));
-    }
-    public static  void sentText(String text, WebElement element){
-        WAIT_FOR_ELEMENT_TO_BE_VISIBLE(element);
-        element.clear();
-        element.sendKeys(text);
-    }
-    public static WebDriverWait GET_WAIT(){
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+    public static WebDriverWait GET_WAIT() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         return wait;
     }
-    public static void CLICK_ON_ELEMENT(WebElement element){
+
+    public static void CLICK_ON_ELEMENT(WebElement element) {
         WAIT_FOR_ELEMENT_TO_BE_CLICKABLE(element);
         element.click();
     }
+
     public static void WAIT_FOR_ELEMENT_TO_BE_CLICKABLE(WebElement element) {
         GET_WAIT().until(ExpectedConditions.elementToBeClickable(element));
     }
