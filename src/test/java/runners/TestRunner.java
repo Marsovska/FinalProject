@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/CreatingLogCredential.feature",
         glue = "steps",
         dryRun = false,
-        tags = "@negative_test1",
+        tags = "",
         plugin = {"pretty"
                 , "html:target/cucumber-html-reports/cucumber.html"
                 , "json:target/cucumber-reports/cucumber.json"

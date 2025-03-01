@@ -104,8 +104,8 @@
                         </goals>
                         <configuration>
                             <projectName>FinalProject</projectName>
-                            <outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory>
-                            <jsonFiles>${project.build.directory}/cucumber-reports/cucumber.json</jsonFiles>
+                            <outputDirectory>${project.basedir}/target/cucumber-html-reports</outputDirectory>
+                            <jsonFiles>${project.basedir}/target/cucumber-reports/cucumber.json</jsonFiles>
                         </configuration>
                     </execution>
                 </executions>
