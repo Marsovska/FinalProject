@@ -13,13 +13,13 @@ Feature: Creating Login details in HRMS Application
     When admin enter "Billy", "" and "Idol"
     When admin check Create Login Details box
     Then admin sees clear rule message about password
-    When admin set "RebelloHello", "RebelSynt@x28", "RebelSynt@x28" as user credentials
+    When admin set "RebelloHelloo", "RebelSynt@x288", "RebelSynt@x288" as user credentials
     When admin make sure status is enabled
     When admin click save button
     Then admin ends on "Personal Details" page
     Then the system should automatically generate employee ID
     Then admin logs out
-    Then employee shall be able to login with "RebelloHello", "RebelSynt@x28" and get "Welcome Billy" message
+    Then employee shall be able to login with "RebelloHelloo", "RebelSynt@x288" and get "Welcome Billy" message
 
   @regression @negative_test1
   Scenario:Admin ensures password and re-enter password must be a match
@@ -44,10 +44,10 @@ Feature: Creating Login details in HRMS Application
     When admin enter "Marry", "" and "Jane"
     When admin check Create Login Details box
     Then admin sees clear rule message about password
-    When admin set "MarriJane", "Synt@xBatch08", "Synt@xBatch08" as user credentials
+    When admin set "MarreJane", "Synt@xBatch088", "Synt@xBatch088" as user credentials
     Then admin set Status as Disabled
     When admin click save button
     Then admin logs out
-    Then employee shall not be able to login using "MarriJane", "Synt@xBatch08" as credentials
+    Then employee shall not be able to login using "MarreJane", "Synt@xBatch088" as credentials
     And employee will get "Account disabled" error message
 
