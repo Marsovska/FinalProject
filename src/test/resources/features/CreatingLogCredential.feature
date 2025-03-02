@@ -41,13 +41,13 @@ Feature: Creating Login details in HRMS Application
 
   @regression @negative_test @thirdOption
   Scenario: Admin Cannot Create Login Credential while Status is Disabled
-    When admin enter "Marry", "" and "Jane"
+    When admin enter "Marrie", "" and "Jane"
     When admin check Create Login Details box
     Then admin sees clear rule message about password
-    When admin set "MarreJane", "Synt@xBatch88", "Synt@xBatch88" as user credentials
+    When admin set "AnnMarrie", "B@tch21Synt@x#21", "B@tch21Synt@x#21" as user credentials
     Then admin set Status as Disabled
     When admin click save button
     Then admin logs out
-    Then employee shall not be able to login using "MarreJane", "Synt@xBatch88" as credentials
+    Then employee shall not be able to login using "AnnMarrie", "B@tch21Synt@x#21" as credentials
     And employee will get "Account disabled" error message
 
