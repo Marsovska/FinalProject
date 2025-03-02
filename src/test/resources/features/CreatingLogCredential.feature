@@ -13,13 +13,13 @@ Feature: Creating Login details in HRMS Application
     When admin enter "Billy", "" and "Idol"
     When admin check Create Login Details box
     Then admin sees clear rule message about password
-    When admin set "RebellHell", "RebelSynt@x08", "RebelSynt@x08" as user credentials
+    When admin set "RebelloHello", "RebelSynt@x28", "RebelSynt@x28" as user credentials
     When admin make sure status is enabled
     When admin click save button
     Then admin ends on "Personal Details" page
     Then the system should automatically generate employee ID
     Then admin logs out
-    Then employee shall be able to login with "RebellHell", "RebelSynt@x08" and get "Welcome Billy" message
+    Then employee shall be able to login with "RebelloHello", "RebelSynt@x28" and get "Welcome Billy" message
 
   @regression @negative_test1
   Scenario:Admin ensures password and re-enter password must be a match
