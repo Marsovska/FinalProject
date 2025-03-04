@@ -54,7 +54,7 @@ public class CreatingLogCredentialSteps extends CommonMethods {
     @When("admin set {string}, {string}, {string} as user credentials")
     public void admin_set_as_user_credentials(String username, String password, String confirmPassword) {
         creatingLogCredentialsPage.userNameField.sendKeys(username);
-        creatingLogCredentialsPage.passwordField.sendKeys(password);
+        creatingLogCredentialsPage.userPasswordField.sendKeys(password);
         creatingLogCredentialsPage.confirmPasswordField.sendKeys(confirmPassword);
     }
 

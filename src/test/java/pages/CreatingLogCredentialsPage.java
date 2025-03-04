@@ -42,7 +42,7 @@ public class CreatingLogCredentialsPage extends CommonMethods {
     public WebElement userNameField;
 
     @FindBy(id = "user_password")
-    public WebElement passwordField;
+    public WebElement userPasswordField;
 
     @FindBy(id = "re_password")
     public WebElement confirmPasswordField;
